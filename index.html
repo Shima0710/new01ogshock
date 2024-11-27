@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>ogshock</title>
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
 <style>
     body {
@@ -35,8 +35,8 @@
 </head>
 <body>
     <div id="video-wrapper">
-        <!-- 自動再生・音声なし・インライン再生 -->
-        <video id="main-video" autoplay muted playsinline loop>
+        <!-- 動画要素 -->
+        <video id="main-video" muted playsinline loop>
             <source src="video/main.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -47,16 +47,20 @@
         document.addEventListener("DOMContentLoaded", () => {
             const video = document.getElementById("main-video");
 
-            // 音声を確実にミュートし、インライン再生を有効化
+            // 音声をミュートし、インライン再生を有効化
             video.muted = true;
             video.playsInline = true;
 
-            // 自動再生の保証を最大化
+            // 自動再生を試みる
             const playPromise = video.play();
             if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.error("自動再生がブロックされました:", error);
-                });
+                playPromise
+                    .then(() => {
+                        console.log("動画が自動再生されました。");
+                    })
+                    .catch(error => {
+                        console.error("自動再生がブロックされました:", error);
+                    });
             }
         });
     </script>
