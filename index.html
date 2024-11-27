@@ -1,40 +1,4 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="utf-8">
-<title>ogshock</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: #000;
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        overflow: hidden;
-    }
-
-    video {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-
-    h1 {
-        position: absolute;
-        color: #fff;
-        font-size: 2rem;
-        text-align: center;
-        text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-    }
-</style>
-</head>
-<body>
-    <div id="wrapper">
+<div id="wrapper">
         <div class="ms-section" id="main-section">
             <!-- 自動再生・音声なし・インライン再生 -->
             <video autoplay muted playsinline loop>
@@ -45,26 +9,3 @@
             <div class="particle" id="pt-main"></div>
         </div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const video = document.getElementById("main-video");
-
-            // 音声をミュートし、インライン再生を有効化
-            video.muted = true;
-            video.playsInline = true;
-
-            // 自動再生を試みる
-            const playPromise = video.play();
-            if (playPromise !== undefined) {
-                playPromise
-                    .then(() => {
-                        console.log("動画が自動再生されました。");
-                    })
-                    .catch(error => {
-                        console.error("自動再生がブロックされました:", error);
-                    });
-            }
-        });
-    </script>
-</body>
-</html>
