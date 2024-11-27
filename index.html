@@ -43,24 +43,24 @@
 
 <div id="wrapper">
 
-<div class="ms-section" id="main-section">
-    <video autoplay loop muted playsinline>
-        <source src="video/main.mp4" type="video/mp4">
-    </video>
-    <h1 class="neon-text">ogshock</h1>
-    <div class="particle" id="pt-main"></div>
-</div>
-
+	<div class="ms-section" id="main-section">
+		<video autoplay loop muted playsinline>
+			<source src="video/main.mp4" type="video/mp4">
+		</video>
+		<h1>ogshock </h1>
+		<div class="particle" id="pt-main"></div>
+	</div>
 	
 
 	<div class="ms-left">
-    <div class="ms-section" id="left1">
-        <video autoplay loop muted playsinline>
-            <source src="video/main.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-</div>
+		<div class="ms-section" id="left1">
+			<video id="main-video" autoplay muted playsinline loop>
+				<source src="video/main.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+			<h1 class="TextTyping">ogshock ogshock ogshock ogshock ogshock ogshock</h1>
+			<div class="particle" id="pt1"></div>
+		</div>
 		<section class="ms-section" id="left2">
             <div class="sp-top"></div>
 			<div class="sp-bottom">
@@ -105,7 +105,7 @@
 			<video autoplay loop muted playsinline>
 				<source src="video/main.mp4" type="video/mp4">
 			</video>
-			
+			<h1 class="TextTyping">ogshock ogshock ogshock ogshock ogshock ogshock</h1>
 			<div class="particle" id="pt2"></div>
     	</div>
 
@@ -133,35 +133,6 @@
 <!--/container--></div>
 	
 <!--=============JS ===============--> 
-<script>
-		document.addEventListener("DOMContentLoaded", function () {
-    const video = document.getElementById("main-video");
-
-    // 動画が自動再生できない場合のフォールバック処理
-    if (video) {
-        video.play().catch(function (error) {
-            console.error("自動再生がブロックされました:", error);
-            // 動画を再生するボタンなどを表示する処理を追加可能
-        });
-    }
-});
-</script>
-
-<script>
-	document.addEventListener("DOMContentLoaded", function () {
-    const videos = document.querySelectorAll("video");
-
-    videos.forEach((video) => {
-        video.muted = true; // 確実にミュート
-        video.playsInline = true; // インライン再生を指定
-
-        video.play().catch((error) => {
-            console.error("自動再生がブロックされました:", error);
-        });
-    });
-});
-
-</script>	
 <!--jQuery-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
 <!--機能編 4-1-5　ロゴアウトラインアニメーション-->
