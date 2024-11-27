@@ -1,7 +1,39 @@
-<div id="wrapper">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Auto Play on Mobile</title>
+    <style>
+        #main-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #000;
+            color: #fff;
+        }
+
+        video {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border: 2px solid #fff;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
         <div class="ms-section" id="main-section">
             <!-- 自動再生・音声なし・インライン再生 -->
-            <video autoplay muted playsinline loop>
+            <video id="main-video" autoplay muted playsinline loop>
                 <source src="video/main.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -9,3 +41,27 @@
             <div class="particle" id="pt-main"></div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const video = document.getElementById("main-video");
+
+            // 音声をミュートし、インライン再生を有効化
+            video.muted = true; // 音声をオフにする
+            video.playsInline = true; // インライン再生を有効化
+
+            // 自動再生を保証
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(() => {
+                        console.log("動画が正常に自動再生されました。");
+                    })
+                    .catch((error) => {
+                        console.error("自動再生が制限されました:", error);
+                    });
+            }
+        });
+    </script>
+</body>
+</html>
