@@ -34,15 +34,17 @@
 </style>
 </head>
 <body>
-    <div id="video-wrapper">
-        <!-- 動画要素 -->
-        <video id="main-video" muted playsinline loop>
-            <source src="video/main.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <h1>ogshock</h1>
+    <div id="wrapper">
+        <div class="ms-section" id="main-section">
+            <!-- 自動再生・音声なし・インライン再生 -->
+            <video autoplay muted playsinline loop>
+                <source src="video/main.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h1>ogshock</h1>
+            <div class="particle" id="pt-main"></div>
+        </div>
     </div>
-
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const video = document.getElementById("main-video");
