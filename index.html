@@ -134,7 +134,8 @@
 <!--/container--></div>
 	
 <!--=============JS ===============--> 
-	<script>document.addEventListener("DOMContentLoaded", function () {
+<script>
+		document.addEventListener("DOMContentLoaded", function () {
     const video = document.getElementById("main-video");
 
     // 動画が自動再生できない場合のフォールバック処理
@@ -146,6 +147,22 @@
     }
 });
 </script>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+    const videos = document.querySelectorAll("video");
+
+    videos.forEach((video) => {
+        video.muted = true; // 確実にミュート
+        video.playsInline = true; // インライン再生を指定
+
+        video.play().catch((error) => {
+            console.error("自動再生がブロックされました:", error);
+        });
+    });
+});
+
+</script>	
 <!--jQuery-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
 <!--機能編 4-1-5　ロゴアウトラインアニメーション-->
